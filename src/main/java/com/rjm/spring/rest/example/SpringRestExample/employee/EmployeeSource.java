@@ -4,8 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.tomcat.jni.Time;
-
 public class EmployeeSource {
 
 	private static final Map<String, Employee> EMPLOYEES = new HashMap<String, Employee>();
@@ -43,7 +41,7 @@ public class EmployeeSource {
     }
     
     public static void add(Employee employee){
-    	employee.setId(String.valueOf(Time.now()));
+    	employee.setId(String.valueOf(System.currentTimeMillis()));
     	EMPLOYEES.put(employee.getId(), employee);
     }
     
