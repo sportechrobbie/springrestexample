@@ -47,8 +47,12 @@ public class EmployeeSource {
     	EMPLOYEES.put(employee.getId(), employee);
     }
     
-    public static void update(Employee employee){
-    	EMPLOYEES.put(employee.getId(), employee);
+    public static void update(Employee employee) throws Exception{
+    	if(EmployeeSource.contains(employee.getId())){
+    		EMPLOYEES.put(employee.getId(), employee);
+    	} else {
+    		throw new Exception("Employee "+ employee.getId()+" does not exists");
+    	}
     }
 	
 }

@@ -24,11 +24,10 @@ public class EmployeeController {
 	
 	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Employee updateEmployee(@RequestBody Employee employee) throws Exception{
-		
-		if(EmployeeSource.contains(employee.getId())){
+		try {
 			EmployeeSource.update(employee);
-		}else{
-			throw new Exception("Employee "+ employee.getId()+" does not exists");
+		} catch (Exception e) {
+			throw e;
 		}
 		return employee;		
 	}
